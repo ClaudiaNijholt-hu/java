@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import practicum6a.Persoon;
+import practicum6a.Game;
 
 import java.time.LocalDate;
 import java.util.Locale;
