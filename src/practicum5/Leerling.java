@@ -1,3 +1,5 @@
+package practicum5;
+
 public class Leerling {
     private String naam;
     private double cijfer;
@@ -24,3 +26,4 @@ public class Leerling {
         return naam + " heeft cijfer: " + cijfer;
     }
 }
+

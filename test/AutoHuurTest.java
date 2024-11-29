@@ -1,4 +1,7 @@
 import org.junit.jupiter.api.Test;
+import practicum4b.Auto;
+import practicum4b.AutoHuur;
+import practicum4b.Klant;
 
 public class AutoHuurTest {
     @Test

@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Test;
+import practicum3b.Cirkel;
 
 public class CirkelTest {
     @Test

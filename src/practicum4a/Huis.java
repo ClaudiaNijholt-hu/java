@@ -1,3 +1,7 @@
+package practicum4a;
+
+import practicum4a.Persoon;
+
 public class Huis {
     // Attributen
     private String adres;

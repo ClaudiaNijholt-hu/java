@@ -1,3 +1,5 @@
+package practicum2a;
+
 public class Zwembad {
     // Attributen
     private double breedte;

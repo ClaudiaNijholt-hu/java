@@ -1,4 +1,6 @@
 import org.junit.jupiter.api.Test;
+import practicum5.Klas;
+import practicum5.Leerling;
 
 public class CijferTest {
     @Test

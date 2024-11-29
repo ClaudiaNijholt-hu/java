@@ -1,3 +1,5 @@
+package practicum3b;
+
 public class Cirkel {
     // Attributen
     private double radius;

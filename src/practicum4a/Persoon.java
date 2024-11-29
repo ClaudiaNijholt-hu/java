@@ -1,3 +1,5 @@
+package practicum4a;
+
 public class Persoon {
     // Attributen
     private String naam;

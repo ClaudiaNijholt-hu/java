@@ -1,3 +1,5 @@
+package practicum1;
+
 public class Som {
     public static void main(String[] args) {
         int som = 0;

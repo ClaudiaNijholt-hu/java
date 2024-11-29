@@ -1,3 +1,5 @@
+package practicum2b;
+
 public class Voetbalclub {
     // Attributen
     private String naam;

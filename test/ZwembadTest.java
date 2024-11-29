@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Test;
+import practicum2a.Zwembad;
 
 public class ZwembadTest {
     @Test

@@ -1,4 +1,6 @@
 import org.junit.jupiter.api.Test;
+import practicum4a.Persoon;
+import practicum4a.Huis;
 
 public class HuisbaasTest {
     @Test

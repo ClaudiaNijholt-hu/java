@@ -1,4 +1,6 @@
 import org.junit.jupiter.api.Test;
+import practicum2b.Voetbalclub;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class VoetbalclubTest {

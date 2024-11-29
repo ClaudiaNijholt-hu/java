@@ -1,3 +1,5 @@
+package practicum1;
+
 public class GetallenlijstWhile {
     public static void main(String[] args) {
         int i = 1;

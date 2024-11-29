@@ -1,3 +1,5 @@
+package practicum4b;
+
 public class AutoHuur {
     private Auto gehuurdeAuto;
     private Klant huurder;
