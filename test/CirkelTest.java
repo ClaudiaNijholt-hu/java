@@ -1,28 +1,31 @@
 import org.junit.jupiter.api.Test;
 import practicum3b.Cirkel;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 public class CirkelTest {
+
     @Test
-    public void test() {
-        Cirkel c1 = null, c2 = null;
+    public void testCirkelWordtCorrectAangemaaktMetGeldigeRadius() {
+        Cirkel c1 = new Cirkel(10, 5, 5);
+        assertNotNull(c1, "Een cirkel met een geldige radius moet succesvol worden aangemaakt.");
+    }
 
-        // Uitkomst;
-        // Zonder try catch stop de applicatie tijdens het uitvoeren
+    @Test
+    public void testCirkelMetRadiusNulGeeftIllegalArgumentException() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            new Cirkel(0, 10, 10);
+        });
+        assertEquals("Radius moet groter dan 0 zijn!", exception.getMessage(),
+                "De foutmelding moet aangeven dat de radius groter dan 0 moet zijn.");
+    }
 
-        // Verklaring:
-        // De code compileert nog steeds omdat de IllegalArgumentException
-        // een runtime exception is, en de compiler vereist niet dat je die moet afvangen.
-        // De code zal compileren, maar de applicatie zal stoppen tijdens uitvoering wanneer
-        // de uitzondering optreedt.
-
-        try {
-            c1 = new Cirkel(10, 0, 0);
-            c2 = new Cirkel(0, 10, 10);
-        } catch (IllegalArgumentException iae) {
-            System.out.println(iae.getMessage());
-        }
-
-        System.out.println(c1);
-        System.out.println(c2);
+    @Test
+    public void testCirkelMetNegatieveRadiusGeeftIllegalArgumentException() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            new Cirkel(-5, 10, 10);
+        });
+        assertEquals("Radius moet groter dan 0 zijn!", exception.getMessage(),
+                "De foutmelding moet aangeven dat de radius groter dan 0 moet zijn.");
     }
 }

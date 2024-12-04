@@ -2,24 +2,24 @@ package practicum3b;
 
 public class Cirkel {
     // Attributen
-    private double radius;
-    private double x;
-    private double y;
+    private int radius;
+    private int xPositie;
+    private int yPositie;
 
     // Constructor
-    public Cirkel(double radius, double x, double y) {
+    public Cirkel(int radius, int x, int y) {
         if (radius <= 0) {
             throw new IllegalArgumentException("Radius moet groter dan 0 zijn!");
         }
         this.radius = radius;
-        this.x = x;
-        this.y = y;
+        this.xPositie = x;
+        this.yPositie = y;
     }
 
     // toString methode
     @Override
     public String toString() {
-        return "cirkel (" + x + ", " + y + ") met radius: " + radius;
+        return "cirkel (" + xPositie + ", " + yPositie + ") met radius: " + radius;
     }
 }
 
