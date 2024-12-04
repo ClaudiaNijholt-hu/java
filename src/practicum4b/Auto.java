@@ -4,13 +4,13 @@ public class Auto {
     private String type;
     private double prijsPerDag;
 
-    public Auto(String type, double prijsPerDag) {
-        this.type = type;
-        this.prijsPerDag = prijsPerDag;
+    public Auto(String tp, double prPd) {
+        this.type = tp;
+        this.prijsPerDag = prPd;
     }
 
-    public String getType() {
-        return type;
+    public void setPrijsPerDag(double prPd) {
+        this.prijsPerDag = prPd;
     }
 
     public double getPrijsPerDag() {

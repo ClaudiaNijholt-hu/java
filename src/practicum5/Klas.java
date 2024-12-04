@@ -3,28 +3,32 @@ package practicum5;
 import java.util.ArrayList;
 
 public class Klas {
-    private String klasNaam;
+    private String klasCode;
     private ArrayList<Leerling> leerlingen;
 
-    public Klas(String klasNaam) {
-        this.klasNaam = klasNaam;
+    public Klas(String kC) {
+        this.klasCode = kC;
         this.leerlingen = new ArrayList<>();
     }
 
     // Voegt een leerling toe aan de klas
-    public void voegLeerlingToe(Leerling leerling) {
-        leerlingen.add(leerling);
+    public void voegLeerlingToe(Leerling l) {
+        leerlingen.add(l);
     }
 
     // Wijzigt het cijfer van een leerling op basis van de naam
-    public void wijzigCijfer(String naam, double cijfer) {
+    public void wijzigCijfer(String nm, double nweCijfer) {
         for (Leerling leerling : leerlingen) {
-            if (leerling.getNaam().equals(naam)) {
-                leerling.setCijfer(cijfer);
-                return; // Stop zodra we de leerling gevonden hebben
+            if (leerling.getNaam().equals(nm)) {
+                leerling.setCijfer(nweCijfer);
+                return;
             }
         }
-        System.out.println("Leerling " + naam + " niet gevonden!");
+    }
+
+    // Retourneert de lijst van leerlingen
+    public ArrayList<Leerling> getLeerlingen() {
+        return leerlingen;
     }
 
     // Retourneert het aantal leerlingen in de klas
@@ -35,7 +39,7 @@ public class Klas {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("In klas ").append(klasNaam).append(" zitten de volgende leerlingen: \n");
+        sb.append("In klas ").append(klasCode).append(" zitten de volgende leerlingen: \n");
         for (Leerling leerling : leerlingen) {
             sb.append(leerling.toString()).append("\n");
         }

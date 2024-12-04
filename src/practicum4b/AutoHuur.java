@@ -1,49 +1,53 @@
 package practicum4b;
 
+import practicum4a.Persoon;
+
 public class AutoHuur {
-    private Auto gehuurdeAuto;
-    private Klant huurder;
     private int aantalDagen;
 
+    private Auto auto;
+    private Klant klant;
+
     public AutoHuur() {
-        this.gehuurdeAuto = null;
-        this.huurder = null;
-        this.aantalDagen = 0;
     }
 
-    public void setGehuurdeAuto(Auto auto) {
-        this.gehuurdeAuto = auto;
+    public void setAantalDagen(int aD) {
+        this.aantalDagen = aD;
     }
 
-    public void setHuurder(Klant huurder) {
-        this.huurder = huurder;
+    public int getAantalDagen() {
+        return aantalDagen;
     }
 
-    public void setAantalDagen(int aantalDagen) {
-        this.aantalDagen = aantalDagen;
+    public void setGehuurdeAuto(Auto gA) {
+        this.auto = gA;
     }
 
     public Auto getGehuurdeAuto() {
-        return gehuurdeAuto;
+        return auto;
+    }
+
+    public void setHuurder(Klant k) {
+        this.klant = k;
     }
 
     public Klant getHuurder() {
-        return huurder;
+        return klant;
     }
 
     public double totaalPrijs() {
-        if (gehuurdeAuto == null || huurder == null) {
+        if (auto == null || klant == null) {
             return 0.0;
         }
-        double prijs = gehuurdeAuto.getPrijsPerDag() * aantalDagen;
-        double korting = (prijs * huurder.getKorting()) / 100;
+        double prijs = auto.getPrijsPerDag() * aantalDagen;
+        double korting = (prijs * klant.getKorting()) / 100;
         return prijs - korting;
     }
 
     @Override
     public String toString() {
-        String autoInfo = (gehuurdeAuto != null) ? gehuurdeAuto.toString() + "\n" : "er is geen auto bekend\n";
-        String huurderInfo = (huurder != null) ? "op naam van: " + huurder + "\n" : "er is geen huurder bekend\n";
+        String autoInfo = (auto != null) ? auto.toString() + "\n" : "er is geen auto bekend\n";
+        String huurderInfo = (klant != null) ? "op naam van: " + klant + "\n" : "er is geen huurder bekend\n";
         return autoInfo + huurderInfo + "aantal dagen: " + aantalDagen + " en dat kost " + totaalPrijs();
     }
 }

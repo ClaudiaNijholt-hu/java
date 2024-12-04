@@ -2,28 +2,23 @@ package practicum4b;
 
 public class Klant {
     private String naam;
-    private double korting;
+    private double kortingsPercentage;
 
-    public Klant(String naam) {
-        this.naam = naam;
-        this.korting = 0.0;
+    public Klant(String nm) {
+        this.naam = nm;
     }
 
-    public String getNaam() {
-        return naam;
-    }
-
-    public void setKorting(double korting) {
-        this.korting = korting;
+    public void setKorting(double kP) {
+        this.kortingsPercentage = kP;
     }
 
     public double getKorting() {
-        return korting;
+        return kortingsPercentage;
     }
 
     @Override
     public String toString() {
-        return naam + " (korting: " + korting + "%)";
+        return naam + " (korting: " + kortingsPercentage + "%)";
     }
 }
 
