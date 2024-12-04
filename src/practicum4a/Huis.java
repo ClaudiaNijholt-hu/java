@@ -1,7 +1,5 @@
 package practicum4a;
 
-import practicum4a.Persoon;
-
 public class Huis {
     // Attributen
     private String adres;
@@ -9,14 +7,14 @@ public class Huis {
     private Persoon huisbaas;
 
     // Constructor
-    public Huis(String adres, int bouwjaar) {
-        this.adres = adres;
-        this.bouwjaar = bouwjaar;
+    public Huis(String adr, int bwjr) {
+        this.adres = adr;
+        this.bouwjaar = bwjr;
     }
 
     // Setter voor huisbaas
-    public void setHuisbaas(Persoon huisbaas) {
-        this.huisbaas = huisbaas;
+    public void setHuisbaas(Persoon hb) {
+        this.huisbaas = hb;
     }
 
     // Getter voor huisbaas
@@ -28,6 +26,6 @@ public class Huis {
     @Override
     public String toString() {
         return "Huis " + adres + " is gebouwd in " + bouwjaar + "\n" +
-                "en heeft huisbaas " + huisbaas;
+                "en heeft huisbaas " + (huisbaas != null ? huisbaas.toString() : "onbekend");
     }
 }

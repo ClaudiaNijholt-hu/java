@@ -6,18 +6,9 @@ public class Persoon {
     private int leeftijd;
 
     // Constructor
-    public Persoon(String naam, int leeftijd) {
-        this.naam = naam;
-        this.leeftijd = leeftijd;
-    }
-
-    // Getters
-    public String getNaam() {
-        return naam;
-    }
-
-    public int getLeeftijd() {
-        return leeftijd;
+    public Persoon(String nm, int lft) {
+        this.naam = nm;
+        this.leeftijd = lft;
     }
 
     // toString methode
