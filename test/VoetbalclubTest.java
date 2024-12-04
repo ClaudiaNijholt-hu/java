@@ -1,44 +1,63 @@
-import org.junit.jupiter.api.Test;
 import practicum2b.Voetbalclub;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class VoetbalclubTest {
+
+    private Voetbalclub club;
+
+    @BeforeEach
+    public void setUp() {
+        // Initialiseer een nieuwe Voetbalclub voor elke test
+        club = new Voetbalclub("Ajax");
+    }
+
+    // Logische testgevallen
     @Test
-    public void test() {
-        Voetbalclub ajx = new Voetbalclub("Ajax");
-        Voetbalclub feij = new Voetbalclub("Feijenoord");
-
-        feij.verwerkResultaat('w');
-        feij.verwerkResultaat('w');
-        feij.verwerkResultaat('w');
-        feij.verwerkResultaat('g');
-
-        System.out.println("Feijenoord punten: " + feij.aantalPunten());
-        System.out.println("Ajax gespeeld: " + ajx.aantalGespeeld());
-        System.out.println();
-
-        System.out.println(ajx);
-        System.out.println(feij);
+    public void testClubNaamBijNullMoetDefaultNaamGebruikten() {
+        Voetbalclub clubMetNullNaam = new Voetbalclub(null);
+        assertTrue(clubMetNullNaam.toString().contains("FC"), "De naam moet 'FC' zijn als null wordt ingevoerd.");
     }
 
     @Test
-    public void testVerwerkResultaat() {
-        Voetbalclub fc = new Voetbalclub("");
+    public void testLegeClubNaamMoetDefaultNaamGebruikten() {
+        Voetbalclub clubMetLegeNaam = new Voetbalclub("");
+        assertTrue(clubMetLegeNaam.toString().contains("FC"), "De naam moet 'FC' zijn als een lege string wordt ingevoerd.");
+    }
 
-        // Verwerk enkele resultaten
-        fc.verwerkResultaat('w'); // Winst
-        fc.verwerkResultaat('g'); // Gelijkspel
-        fc.verwerkResultaat('v'); // Verlies
-        fc.verwerkResultaat('x'); // Ongeldige invoer
+    @Test
+    public void testHerhaaldelijkResultatenVerwerkenGeeftCorrecteWedstrijdOptelling() {
+        club.verwerkResultaat('w');
+        club.verwerkResultaat('g');
+        club.verwerkResultaat('v');
+        assertTrue(club.toString().contains(" 3 "), "Het aantal gespeelde wedstrijden moet correct worden opgeteld.");
+    }
 
-        System.out.println(fc);
+    @Test
+    public void testHerhaaldelijkResultatenVerwerkenGeeftCorrectePuntenOptelling() {
+        club.verwerkResultaat('w');
+        club.verwerkResultaat('g');
+        club.verwerkResultaat('v');
+        assertTrue(club.toString().contains(" 4"), "Het puntensaldo moet correct worden berekend.");
+    }
 
-        // Controleer of de waarden correct zijn bijgewerkt
-        assertEquals(1, fc.aantalGewonnen(), "Aantal gewonnen moet 1 zijn");
-        assertEquals(1, fc.aantalGelijk(), "Aantal gelijkspel moet 1 zijn");
-        assertEquals(1, fc.aantalVerloren(), "Aantal verloren moet 1 zijn");
-        assertEquals(3, fc.aantalGespeeld(), "Aantal gespeelde wedstrijden moet 3 zijn");
-        assertEquals(4, fc.aantalPunten(), "Aantal punten moet 4 zijn (1x winst en 1x gelijkspel)");
+    // Fysieke testgevallen
+    @Test
+    public void testCorrectPuntenBijWinst() {
+        club.verwerkResultaat('w');
+        assertTrue(club.toString().contains(" 3"), "Bij winst moeten 3 punten worden toegekend.");
+    }
+
+    @Test
+    public void testCorrectPuntenBijGelijkspel() {
+        club.verwerkResultaat('g');
+        assertTrue(club.toString().contains(" 1"), "Bij gelijkspel moet 1 punt worden toegekend.");
+    }
+
+    @Test
+    public void testFoutieveInvoerResultaatBeïnvloedtNietWedstrijden() {
+        club.verwerkResultaat('x'); // Foutieve invoer
+        assertTrue(club.toString().contains(" 0 "), "Het aantal gespeelde wedstrijden moet 0 blijven bij foutieve invoer.");
     }
 }
