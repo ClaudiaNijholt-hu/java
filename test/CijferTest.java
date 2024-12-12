@@ -10,19 +10,19 @@ public class CijferTest {
     private Klas klas;
 
     @BeforeEach
-    public void setUp() {
+    public void init() {
         klas = new Klas("V1Z");
-        klas.voegLeerlingToe(new Leerling("Hans"));
-        klas.voegLeerlingToe(new Leerling("Jan"));
-        klas.voegLeerlingToe(new Leerling("Wim"));
     }
 
     @Test
     public void testWijzigCijfer() {
-        // Wijzig het cijfer van Hans naar 7.6
-        klas.wijzigCijfer("Hans", 7.6);
+        // Wijzig het cijfer voor Hans
+        assertEquals(0, klas.wijzigCijfer("Hans", 7.6));
+    }
 
-        // Assert dat het aantal leerlingen in de klas gelijk blijft
-        assertEquals(3, klas.aantalLeerlingen());
+    @Test
+    public void testWijzigCijferLeerlingNietGevonden() {
+        // Probeer een niet-bestaande leerling te wijzigen
+        assertEquals(-1, klas.wijzigCijfer("Piet", 8.0));
     }
 }
